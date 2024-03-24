@@ -5,43 +5,47 @@ import React from 'react';
 // Internal Library Import
 import {ProductsDataType} from 'src/types/blogsType';
 
-const Card = ({item}: {item: ProductsDataType}) => {
+const Card = ({item}: {item: ProductsDataType; isLoading: boolean}) => {
   return (
-    <Pressable
-      hitSlop={{top: 20, bottom: 20, left: 50, right: 50}}
-      style={{
-        marginHorizontal: 10,
-        marginTop: 10,
-      }}
-      android_ripple={{
-        color: '#fff',
-        borderless: false,
-        foreground: true,
-      }}>
-      <View style={styles.item}>
-        <FastImage
-          style={styles.image}
-          source={{uri: item?.thumbnail}}
-          resizeMode="cover"
-        />
+    <>
+      <Pressable
+        hitSlop={{top: 20, bottom: 20, left: 50, right: 50}}
+        style={{
+          marginHorizontal: 10,
+          marginTop: 10,
+        }}
+        android_ripple={{
+          color: '#fff',
+          borderless: false,
+          foreground: true,
+        }}>
+        <View style={styles.item}>
+          <FastImage
+            style={styles.image}
+            source={{
+              uri: item?.thumbnail,
+            }}
+            resizeMode="cover"
+          />
 
-        <View style={styles.wrapText}>
-          <Text style={styles.title}>{`${item?.title}`}</Text>
-          <Text numberOfLines={2} style={styles.descStyle}>
-            {item?.description}
-          </Text>
-          <Text
-            style={{
-              ...styles.descStyle,
-              fontWeight: '500',
-              color: '#000',
-              marginTop: 5,
-            }}>
-            ${item?.price}
-          </Text>
+          <View style={styles.wrapText}>
+            <Text style={styles.title}>{`${item?.title}`}</Text>
+            <Text numberOfLines={2} style={styles.descStyle}>
+              {item?.description}
+            </Text>
+            <Text
+              style={{
+                ...styles.descStyle,
+                fontWeight: '500',
+                color: '#000',
+                marginTop: 5,
+              }}>
+              ${item?.price}
+            </Text>
+          </View>
         </View>
-      </View>
-    </Pressable>
+      </Pressable>
+    </>
   );
 };
 
