@@ -8,7 +8,7 @@ import {useGetBlogsQuery} from 'services';
 import {ProductsDataType} from 'types';
 
 const Home = () => {
-  const a = 12;
+  const b = 12;
   const {data, error, isLoading} = useGetBlogsQuery(undefined);
   const renderItem = ({item}: {item: ProductsDataType}) => {
     // Render each item here
