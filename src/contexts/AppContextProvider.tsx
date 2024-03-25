@@ -1,13 +1,16 @@
-import React, {createContext, ReactNode, useContext} from 'react';
+import React, {createContext, ReactNode, useContext, useState} from 'react';
 
-const AppContext = createContext<any>({});
+interface AppContextType {
+  isLoggedIn: boolean;
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-type AppContextProviderProps = {
-  children?: ReactNode;
-};
+const AppContext = createContext<AppContextType | undefined>(undefined);
 
-export default ({children}: AppContextProviderProps) => {
-  const [isLoggedIn, setIsLoggedIn] = React.useState<unknown>(false);
+export const AppContextProvider: React.FC<AppContextProviderProps> = ({
+  children,
+}) => {
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   return (
     <AppContext.Provider
@@ -20,4 +23,17 @@ export default ({children}: AppContextProviderProps) => {
   );
 };
 
-export const useAppContext = () => useContext(AppContext);
+interface AppContextProviderProps {
+  children?: ReactNode;
+}
+
+export const useAppContext = (): AppContextType => {
+  const context = useContext(AppContext);
+  if (!context) {
+    throw new Error('useAppContext must be used within an AppContextProvider');
+  }
+  return context;
+};
+
+// Specify a display name for better debugging experience
+AppContextProvider.displayName = 'AppContextProvider';

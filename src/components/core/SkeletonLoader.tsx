@@ -1,11 +1,28 @@
 import React, {memo, useEffect, useState} from 'react';
-import {Animated, Dimensions, StyleSheet, View} from 'react-native';
+import {
+  Animated,
+  Dimensions,
+  StyleSheet,
+  View,
+  ViewStyle,
+  LayoutChangeEvent,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+
+interface SkeletonProps {
+  colors?: string[];
+  gradientStyle?: ViewStyle;
+  wrapperStyle?: ViewStyle;
+}
 
 const GREY = 'rgb(225, 225, 225)';
 const SkeletonAnimatedValue = new Animated.Value(0);
 
-const Skeleton = ({colors, gradientStyle, wrapperStyle}: any) => {
+const Skeleton: React.FC<SkeletonProps> = ({
+  colors,
+  gradientStyle,
+  wrapperStyle,
+}) => {
   const [viewWidth, setViewWidth] = useState(-1);
 
   const gradientColors = [GREY, '#fff', GREY];
@@ -25,7 +42,7 @@ const Skeleton = ({colors, gradientStyle, wrapperStyle}: any) => {
     ).start();
   };
 
-  const onLayoutChange = (event: any) => {
+  const onLayoutChange = (event: LayoutChangeEvent) => {
     const {width} = event.nativeEvent.layout;
     setViewWidth(width);
   };

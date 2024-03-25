@@ -1,4 +1,4 @@
-import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
+import {ActivityIndicator, View} from 'react-native';
 import React from 'react';
 
 const Loader = () => {
@@ -10,5 +10,3 @@ const Loader = () => {
 };
 
 export default Loader;
-
-const styles = StyleSheet.create({});

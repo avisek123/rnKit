@@ -16,6 +16,7 @@ const Routes = () => {
     if (authCheck) {
       dispatch(logIn());
     } else {
+      /* empty */
     }
   }, [authCheck]);
 

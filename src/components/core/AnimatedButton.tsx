@@ -23,7 +23,6 @@ interface AnimatedBtnLoaderProps {
 const AnimatedButton: React.FC<AnimatedBtnLoaderProps> = ({
   buttonText,
   handlePress,
-  setBtnClicked,
   btnClicked,
 }) => {
   const btnWidth = DimensionWidth / 1.2;

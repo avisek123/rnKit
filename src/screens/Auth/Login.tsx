@@ -43,6 +43,7 @@ const Login = () => {
       email: data?.Email,
       password: data?.Password,
     };
+    console.log('infoData,', infoData);
     setBtnClicked(!btnClicked);
     setTimeout(() => {
       handleLogin();
@@ -102,6 +103,7 @@ const Login = () => {
               fieldState: {error},
             }) => (
               <TextInput
+                // eslint-disable-next-line @typescript-eslint/no-shadow
                 onChangeText={value => onChange(value)}
                 value={value}
                 placeholder={t('ENTER_YOUR_EMAIL')}
@@ -138,6 +140,7 @@ const Login = () => {
               fieldState: {error},
             }) => (
               <TextInput
+                // eslint-disable-next-line @typescript-eslint/no-shadow
                 onChangeText={value => onChange(value)}
                 value={value}
                 style={{

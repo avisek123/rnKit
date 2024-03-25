@@ -13,7 +13,7 @@ const AppText: React.FC<AppTextProps> = ({
   style,
   ...rest
 }) => {
-  const {t, i18n} = useTranslation();
+  const {t} = useTranslation();
 
   return (
     <Text style={style} {...rest}>

@@ -1,4 +1,4 @@
-import {Pressable, StyleSheet} from 'react-native';
+import {Pressable} from 'react-native';
 import React, {memo} from 'react';
 import {SkeletonLoader} from './core';
 
@@ -32,5 +32,3 @@ const CardSkeleton: React.FC<CardSkeletonProps> = ({
 };
 
 export default memo(CardSkeleton);
-
-const styles = StyleSheet.create({});
