@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import {BASE_URL} from 'configs';
-
 import {logOut, setCredentials} from 'features';
 import {RootState} from 'src/redux/Store';
 import {getItem, setItem} from 'utils';
