@@ -1,0 +1,6 @@
+module Pods_rnKit {
+  umbrella header "Pods-rnKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

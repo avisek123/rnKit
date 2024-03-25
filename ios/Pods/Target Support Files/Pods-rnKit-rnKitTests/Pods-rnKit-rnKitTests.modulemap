@@ -1,0 +1,6 @@
+module Pods_rnKit_rnKitTests {
+  umbrella header "Pods-rnKit-rnKitTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
