@@ -1,6 +1,6 @@
 // External Library Import
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {DrawerActions, useNavigation} from '@react-navigation/native';
 import FastImage from 'react-native-fast-image';
 import React from 'react';
 // Internal Library Import
@@ -11,7 +11,7 @@ interface AppBarProps {
   text?: string;
 }
 const AppBar = ({text}: AppBarProps) => {
-  const {navigate, goBack} = useNavigation<MainNavigationProps>();
+  const {navigate, goBack, dispatch} = useNavigation<MainNavigationProps>();
   return (
     <>
       <View style={styles.headWrapper}>
@@ -20,13 +20,16 @@ const AppBar = ({text}: AppBarProps) => {
             flexDirection: 'row',
             justifyContent: 'space-between',
           }}>
-          <FastImage
-            style={{height: 40, width: 40}}
-            source={{
-              uri: 'https://img.freepik.com/premium-vector/hr-manager-icon-simple-hr-manager-colored-flat-icon-isolated-white-background_176841-91787.jpg?w=1380',
-            }}
-            resizeMode={FastImage.resizeMode.contain}
-          />
+          <TouchableOpacity
+            onPress={() => {
+              dispatch(DrawerActions.openDrawer());
+            }}>
+            <FastImage
+              style={{height: 25, width: 25, marginTop: 5}}
+              source={ImagePath.menu}
+              resizeMode={FastImage.resizeMode.contain}
+            />
+          </TouchableOpacity>
           <AppText text={text || 'Products_Gallery'} style={styles.title} />
 
           <TouchableOpacity

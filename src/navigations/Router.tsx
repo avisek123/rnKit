@@ -2,10 +2,10 @@
 import React from 'react';
 // Internal file import
 import AuthNavigations from './AuthStack';
-import MainNavigation from './MainStack';
 import {useAppDispatch, useAppSelector} from 'hooks';
 import {getItem} from 'utils';
 import {logIn} from 'features';
+import CustomDrawer from '../Layouts/DrawerLayouts';
 
 const Routes = () => {
   // const {isLoggedIn} = useAppContext();
@@ -19,7 +19,7 @@ const Routes = () => {
     }
   }, [authCheck]);
 
-  return <>{isLoggedIn ? <MainNavigation /> : <AuthNavigations />}</>;
+  return <>{isLoggedIn ? <CustomDrawer /> : <AuthNavigations />}</>;
 };
 
 export default Routes;
